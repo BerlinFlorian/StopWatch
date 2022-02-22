@@ -10,13 +10,15 @@ window.onload=function(){
     let minutesSet = "00";
     let secondsSet = "00";
     let tensSet = "00";
-    let Interval;
+    let Interval = false;
 
     // Start Button
     startButton.onclick=function(){
-        clearInterval(Interval);
-        Interval = setInterval(startTimer, 10);
-        dimEffect();
+        if (Interval === false) {
+            clearInterval(Interval);
+            Interval = setInterval(startTimer, 10);
+            dimEffect();
+        }
 
     };
 
@@ -37,17 +39,19 @@ window.onload=function(){
 
     // Reset Button
     resetButton.onclick=function(){
-        clearInterval(Interval);
-        dimEffect();
-        Interval = false;
-        minutesSet = "00";
-        secondsSet = "00";
-        tensSet = "00";
-        minutes.innerHTML=minutesSet;
-        seconds.innerHTML=secondsSet;
-        tens.innerHTML=tensSet;
+        if (Interval) {
+            clearInterval(Interval);
+            dimEffect();
+            Interval = false;
+            minutesSet = "00";
+            secondsSet = "00";
+            tensSet = "00";
+            minutes.innerHTML = minutesSet;
+            seconds.innerHTML = secondsSet;
+            tens.innerHTML = tensSet;
 
-        document.getElementById("laps").innerHTML = "";
+            document.getElementById("laps").innerHTML = "";
+        }
     }
 
     function startTimer(){
