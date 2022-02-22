@@ -19,22 +19,24 @@ body{
     background: url(https://source.unsplash.com/d3bYmnZ0ank) center/cover no-repeat;
     position: relative;
     z-index: 1;
+    padding: 0;
+    margin: 0;
 }
 
 .overlay{
     position: absolute;
-    height: 100vh;
+    height: 107.5vh;
     width: 100%;
     background-color: rgba(0,0,0,0.3);
     z-index: 2;
-    top: -45px;
     left: 0;
+    top: -45px;
 }
 
 .container{
     position: relative;
     z-index: 3;
-    width: 600px;
+    width: 400px;
     margin: 30px auto;
     text-align: center;
 }
@@ -101,4 +103,19 @@ h1,h2{
 }
 .laps-container li:nth-child(even){
     color: var(--grey-c);
+}
+
+.diming-effect{
+    animation: dimAnimation 1s linear infinite;
+}
+
+@keyframes dimAnimation{
+    0%{
+        box-shadow: inset 0 0 10px 2px rgba(255, 0, 0, 0.3);
+        color: var(--dark-c);
+    }
+    100%{
+        box-shadow: inset 0 0 80px 2px rgba(255, 0, 0, 0.1);
+        color: black;
+    }
 }
